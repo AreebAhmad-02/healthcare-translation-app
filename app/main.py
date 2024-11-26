@@ -45,8 +45,9 @@ def main():
                 # Text-to-speech
                 audio_file = text_to_speech(translated_text, output_lang)
                 if audio_file:
-                    st.audio(audio_file, format="audio/mp3")
-                    os.remove(audio_file)  # Clean up
+                    if st.button("Speak Translated Text"):
+                        st.audio(audio_file, format="audio/mp3")
+                        os.remove(audio_file)  # Clean up
 
     st.markdown('<p style="font-size: 12px; text-align: center;">Powered by Streamlit, Google Speech Recognition, and gTTS</p>', 
         unsafe_allow_html=True)
