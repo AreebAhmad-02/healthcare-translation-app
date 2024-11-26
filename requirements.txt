@@ -1,5 +1,6 @@
 streamlit
+PyAudio
 googletrans==4.0.0-rc1
 SpeechRecognition
 gtts
-PyAudio
+# sounddevice
