@@ -256,7 +256,8 @@ def main():
         kwargs={},
         key=None
     )
-    text = refine_text(unrefined_text,input_lang)
+    # text = refine_text(unrefined_text,input_lang)
+    text = unrefined_text
     
 
     # if audio:
