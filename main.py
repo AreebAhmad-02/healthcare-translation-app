@@ -130,6 +130,7 @@
 
 
 import streamlit as st
+from googletrans import Translator, LANGUAGES
 
 # from google_trans_new import google_translator
 from gtts import gTTS
