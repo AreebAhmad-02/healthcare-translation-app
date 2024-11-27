@@ -283,7 +283,7 @@ def main():
             # Text-to-speech
             audio_file = text_to_speech(translated_text, output_lang)
             if audio_file:
-                st.audio(audio_file, format="audio/mp3")
+                st.audio(audio_file, format="audio/mpeg")
                 os.remove(audio_file)  # Clean up
         else:
             st.error("Translation failed. Please try again.")
