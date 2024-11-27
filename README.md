@@ -1,6 +1,4 @@
-# healthcare-translation-app
 
-Web app to trnslate languages from patients to doctors
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,11 +31,12 @@ Web app to trnslate languages from patients to doctors
   <h2>🚀 How to Run the Project</h2>
   <ol>
     <li>Clone the repository:
-      <pre><code>git clone https://github.com/yourusername/healthcare-translation-webapp.git</code></pre>
+      <pre><code>git clone https://github.com/AreebAhmad-02/healthcare-translation-app.git</code></pre>
     </li>
     <li>Navigate to the project directory:
-      <pre><code>cd healthcare-translation-webapp</code></pre>
+      <pre><code>cd assessment\health_care_translation_app></code></pre>
     </li>
+    <li>you may create your own virtual env</li>
     <li>Install required dependencies:
       <pre><code>pip install -r requirements.txt</code></pre>
     </li>
@@ -48,16 +47,13 @@ Web app to trnslate languages from patients to doctors
       </ul>
     </li>
     <li>Run the Streamlit app:
-      <pre><code>streamlit run app.py</code></pre>
+      <pre><code>streamlit run main.py</code></pre>
     </li>
   </ol>
 
   <hr>
 
-  <h2>📷 Screenshots</h2>
-  <h3>🎙 Speech-to-Text and Translation</h3>
-  <img src="path-to-your-screenshot.png" alt="Speech-to-Text and Translation" width="600">
-
+  
   <hr>
 
   <h2>📚 Technologies Used</h2>
@@ -104,16 +100,13 @@ Web app to trnslate languages from patients to doctors
 
   <hr>
 
-  <h2>🧑‍💻 Authors</h2>
-  <ul>
-    <li><strong>Your Name</strong> – <a href="https://github.com/yourusername">@yourusername</a></li>
-    <li><strong>Contributors</strong> – See the full list of contributors <a href="https://github.com/yourusername/healthcare-translation-webapp/graphs/contributors">here</a>.</li>
-  </ul>
+  
+  
 
   <hr>
 
   <h2>📬 Contact</h2>
-  <p>For inquiries, email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+  <p>For inquiries, email: <a href="mailto:ahmadareeb3026@gmail.com">my email</a></p>
 
   <p align="center">⭐ Star this repo if you find it useful! ⭐</p>
 </body>
