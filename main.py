@@ -151,16 +151,26 @@ translator = Translator()
 # Real-time transcription function
 
 
-# def speech_to_text(audio_bytes):
-#     transcriber = aai.Transcriber()
-#     transcript = transcriber.transcribe(audio_bytes)
-#     if transcript.status == aai.TranscriptStatus.error:
-#         print(transcript.error)
-#         return None
-#     else:
-#         return transcript.text
+def refine_text(text,language_specified):
+        genai.configure(api_key=st.secrets['GEMINI_API_KEY'])
 
-# Function to translate text
+        # Create a model instance
+        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        # Define the text to be translated and the target language
+        text_to_refine = text
+        target_language = language_specified 
+
+        # Prompt the model to translate the text
+        prompt = f"You are a text refiner and translator who is experienced in medical domain. write and refine '{text}' to {language_specified}. Please be specific and just write the {language_specified} language nothing else"
+
+        # Generate the translation
+        response = model.generate_content(prompt)
+
+
+        return response.text
+
+
 
 
 def translate_text(text, target_language):
@@ -235,8 +245,8 @@ def main():
     
     # Real-time Speech-to-text with mic_recorder
     
-    text = speech_to_text(
-        language='en',
+    unrefined_text = speech_to_text(
+        language=input_lang,
         start_prompt="Start recording",
         stop_prompt="Stop recording",
         just_once=False,
@@ -246,6 +256,8 @@ def main():
         kwargs={},
         key=None
     )
+    text = refine_text(unrefined_text,input_lang)
+    
 
     # if audio:
     #     audio_bytes = audio["bytes"]
@@ -254,6 +266,7 @@ def main():
     #     # Transcription
     #     text = speech_to_text(audio_bytes)
     if text:
+        
         st.success("Original Transcript:")
         st.write(text)
 
