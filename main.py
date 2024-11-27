@@ -176,7 +176,7 @@ def translate_text(text, target_language):
         target_language = target_language  
 
         # Prompt the model to translate the text
-        prompt = f"You are a language translator who is experienced in medical domain. Translate '{text_to_translate}' to {target_language}. Please be specific and do not provide any additional detail"
+        prompt = f"You are a language translator who is experienced in medical domain. Translate '{text_to_translate}' to {target_language}. Please be specific and just write the translated language nothing else"
 
         # Generate the translation
         response = model.generate_content(prompt)
