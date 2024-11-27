@@ -138,6 +138,7 @@ import os
 from streamlit_mic_recorder import speech_to_text
 # import assemblyai as aai
 from streamlit_mic_recorder import mic_recorder
+import google.generativeai as genai
 import io
 
 # Replace with your API key
@@ -165,9 +166,24 @@ translator = Translator()
 def translate_text(text, target_language):
     try:
           
-        translated = translator.translate(text, dest=target_language)
-        translated.text
-        return translated.text
+        genai.configure(api_key=st.secrets['GEMINI_API_KEY'])
+
+        # Create a model instance
+        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        # Define the text to be translated and the target language
+        text_to_translate = text
+        target_language = target_language  
+
+        # Prompt the model to translate the text
+        prompt = f"You are a language translator who is experienced in medical domain. Translate '{text_to_translate}' to {target_language}. Please be specific and do not provide any additional detail"
+
+        # Generate the translation
+        response = model.generate_content(prompt)
+
+
+        print(response.text)
+        return response.text
     except Exception as e:
         st.error(f"Translation error: {e}")
         return None
@@ -214,6 +230,9 @@ def main():
         format_func=lambda code: dict(language_options)[code]
     )
 
+    listening_text = st.empty()  # Create an empty placeholder for dynamic updates
+    listening_text.text("Listening...")  # Display "Listening..." initially
+    
     # Real-time Speech-to-text with mic_recorder
     
     text = speech_to_text(
@@ -239,9 +258,9 @@ def main():
         st.write(text)
 
         # Translation
-        print("not here actually")
+        
         translated_text = translate_text(text, output_lang)
-        print("am i here")
+        
         print("translate_text",translated_text)
         if translated_text:
             st.success("Translated Transcript:")

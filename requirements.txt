@@ -1,9 +1,4 @@
 streamlit
-# PyAudio
-# speech_recognition
 streamlit-mic-recorder
-# assemblyai
-googletrans==3.1.0a0
-# googletrans==4.0.0-rc1
+google-generativeai
 gtts
-# sounddevice
