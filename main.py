@@ -288,7 +288,7 @@ def main():
         else:
             st.error("Translation failed. Please try again.")
 
-    st.markdown('<p style="font-size: 12px; text-align: center;">Powered by Streamlit, Google Speech Recognition, and gTTS</p>',
+    st.markdown('<p style="font-size: 12px; text-align: center;">Powered by Streamlit, Google Speech Recognition, gTTS and Google Gemini</p>',
                 unsafe_allow_html=True)
 
 
