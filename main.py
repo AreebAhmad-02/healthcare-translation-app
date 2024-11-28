@@ -241,7 +241,11 @@ def main():
     )
 
     listening_text = st.empty()  # Create an empty placeholder for dynamic updates
-    listening_text.text("Listening...")  # Display "Listening..." initially
+    # listening_text.text("Listening...")  # Display "Listening..." initially
+    st.markdown(
+        "###### Tap the Start Recording button to start the recording")
+    st.markdown(
+        "###### When you are done Recording tap the stop recording button to stop recording")
     
     # Real-time Speech-to-text with mic_recorder
     
