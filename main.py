@@ -10,17 +10,15 @@ from streamlit_mic_recorder import mic_recorder
 import google.generativeai as genai
 import io
 
-# Replace with your API key
-# aai.settings.api_key = "ac38c03ab1fd4cc4b970a2dc5d6f8a31"
 
-# Initialize Translator
-# translator = google_translator()
+
 translator = Translator()
+
 
 
 def translate_text(text, target_language):
     try:
-
+          
         genai.configure(api_key=st.secrets['GEMINI_API_KEY'])
 
         # Create a model instance
@@ -28,13 +26,14 @@ def translate_text(text, target_language):
 
         # Define the text to be translated and the target language
         text_to_translate = text
-        target_language = target_language
+        target_language = target_language  
 
         # Prompt the model to translate the text
         prompt = f"You are a language translator who is experienced in medical domain. Translate '{text_to_translate}' to {target_language}. Please be specific and just write the translated language nothing else"
 
         # Generate the translation
         response = model.generate_content(prompt)
+
 
         print(response.text)
         return response.text
@@ -90,9 +89,9 @@ def main():
         "###### Tap the Start Recording button to start the recording")
     st.markdown(
         "###### When you are done Recording tap the stop recording button to stop recording")
-
+    
     # Real-time Speech-to-text with mic_recorder
-
+    
     unrefined_text = speech_to_text(
         language=input_lang,
         start_prompt="Start recording",
@@ -106,6 +105,7 @@ def main():
     )
 
     text = unrefined_text
+    
 
     # if audio:
     #     audio_bytes = audio["bytes"]
@@ -114,15 +114,15 @@ def main():
     #     # Transcription
     #     text = speech_to_text(audio_bytes)
     if text:
-
+        
         st.success("Original Transcript:")
         st.write(text)
 
         # Translation
-
+        
         translated_text = translate_text(text, output_lang)
-
-        print("translate_text", translated_text)
+        
+        print("translate_text",translated_text)
         if translated_text:
             st.success("Translated Transcript:")
             st.write(translated_text)
